@@ -1,0 +1,29 @@
+﻿@MagicOnionStudy_HostAddress = https://localhost:7165
+
+POST {{MagicOnionStudy_HostAddress}}/todoitems
+Content-Type: application/json
+
+{
+  "name":"walk dog",
+  "isComplete":true
+}
+
+###
+
+GET {{MagicOnionStudy_HostAddress}}/todoitems
+
+###
+
+PUT {{MagicOnionStudy_HostAddress}}/todoitems/1
+Content-Type: application/json
+
+{
+  "name": "feed fish",
+  "isComplete": false
+}
+
+###
+
+DELETE {{MagicOnionStudy_HostAddress}}/todoitems/1
+
+###

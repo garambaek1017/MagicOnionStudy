@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "dev": {
+      "commandName": "Project",
+      "commandLineArgs": "--env=dev",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
+    }
+  },
+  "$schema": "http://json.schemastore.org/launchsettings.json"
+}

@@ -14,7 +14,7 @@ namespace MagicOnionStudyClient
             throw new NotImplementedException();
         }
 
-        public void OnSendMessage(BroadCastPacket message)
+        public void OnSendReceiver(BroadCastPacket message)
         {
             Logger.Log($"{message.Sender}, {message.BroadCastMessage}");
         }

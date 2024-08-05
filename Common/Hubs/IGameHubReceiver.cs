@@ -8,6 +8,6 @@ namespace Shared.Hubs
         // todo : error Code를 enum으로 바꾸자 
         void OnForceClose(int errorCode);
 
-        void OnSendMessage(BroadCastPacket message);
+        void OnSendReeiver(BroadCastPacket message);
     }
 }

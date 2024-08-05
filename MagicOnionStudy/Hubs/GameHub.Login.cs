@@ -1,6 +1,4 @@
-﻿using MagicOnion.Server.Hubs;
-using Shared.Packets;
-using System.Reflection.Metadata;
+﻿using Shared.Packets;
 
 namespace MagicOnionServer.Hubs
 {
@@ -12,7 +10,7 @@ namespace MagicOnionServer.Hubs
             this._room = await this.Group.AddAsync(Constant.RoomName);
             var newUserId = PlayerManager.Instance.AddPlayer(ConnectionId, name);
 
-            this._room.All.OnSendMessage(new BroadCastPacket()
+            this._room.All.ReceiveMessage(new BroadCastPacket()
             {
                 Sender = name,
                 BroadCastMessage = "Newbie is Connected"
@@ -21,13 +19,12 @@ namespace MagicOnionServer.Hubs
             // todo : 로그인 처리 
             var res = new ResLoginPacketResult
             {
-                UserId = newUserId, 
+                UserId = newUserId,
                 Nickname = name
             };
 
             return res;
         }
 
-     
     }
 }

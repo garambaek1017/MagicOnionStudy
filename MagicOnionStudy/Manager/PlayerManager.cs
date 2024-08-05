@@ -22,14 +22,14 @@ namespace MagicOnionServer
 
         public int AddPlayer(Guid connectionId, string name)
         {
+            IncreaseUserId();
+
             var player = new Player(0, connectionId, name);
 
             PlayerByConnectionId.TryAdd(connectionId, player);
             PlayerByUserId.TryAdd(UserId, player);
 
             Logger.Log($"AddPlayer :: connectionId:{connectionId}, userId: {UserId}, name:{name}");
-
-            IncreaseUserId();
 
             return UserId;
         }

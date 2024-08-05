@@ -10,5 +10,7 @@ namespace Shared.Hubs
     public interface IGameHub : IStreamingHub<IGameHub, IGameHubReceiver>
     {
         ValueTask<ResLoginPacketResult> Login(string name);
+
+        ValueTask<ResChatPacketResult> SendMessage(ReqChatPacket chatPacket);
     }
 }

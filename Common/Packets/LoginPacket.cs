@@ -3,9 +3,9 @@
 namespace Shared.Packets
 {
     [MemoryPackable]
-    public partial class ReqLoginPacket
+    public partial class ReqLoginPacket : BasePacket
     {
-        public string Nickname { get; set; }
+
     }
 
     [MemoryPackable]

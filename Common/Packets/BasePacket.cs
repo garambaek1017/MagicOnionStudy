@@ -9,6 +9,14 @@ using System.Threading.Tasks;
 namespace Shared.Packets
 {
     [MemoryPackable]
+    public partial class BasePacket
+    {
+        public int UserId { get; set; }
+        public string Nickname { get; set; }
+
+    }
+
+    [MemoryPackable]
     public partial class BaseResultPacket
     {
         public int Code { get; set; }
@@ -17,6 +25,4 @@ namespace Shared.Packets
 
         public string Nickname { get; set; }
     }
-
-
 }

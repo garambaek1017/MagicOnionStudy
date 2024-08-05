@@ -16,7 +16,7 @@ namespace MagicOnionStudyClient
 
         public void OnSendReceiver(BroadCastPacket message)
         {
-            Logger.Log($"{message.Sender}, {message.BroadCastMessage}");
+            GameHubClient.Instance.Messages.Add($"{message.Sender}, {message.BroadCastMessage}");
         }
     }
 }

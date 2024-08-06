@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MagicOnion" Version="7.0.0-preview.5" />
+    <PackageReference Include="MagicOnion.Serialization.MemoryPack" Version="7.0.0-preview.5-preview" />
+    <PackageReference Include="MemoryPack.Core" Version="1.21.1" />
+  </ItemGroup>
+
+</Project>

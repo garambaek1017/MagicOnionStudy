@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using MagicOnionServer.Manager;
+using Shared;
 
 namespace MagicOnionServer.Hubs
 {
@@ -15,7 +16,7 @@ namespace MagicOnionServer.Hubs
                 // broadcast 하기 위해 그룹에 유저 추가 
                 this._room = await this.Group.AddAsync(Constant.RoomName);
 
-                var newUserId = UserManager.Instance.AddPlayer(ConnectionId, req.Nickname);
+                var newUserId = UserManager.Instance.AddUser(ConnectionId, req.Nickname);
 
                 res = new ResLoginPacketResult
                 {

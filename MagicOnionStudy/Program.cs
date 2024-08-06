@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// http2 ì‚¬ìš© ì²˜ë¦¬ 
 builder.WebHost.ConfigureKestrel(options =>
 {
     // WORKAROUND: Accept HTTP/2 only to allow insecure HTTP/2 connections during development.
@@ -21,7 +22,7 @@ MagicOnionSerializerProvider.Default = MemoryPackMagicOnionSerializerProvider.In
 builder.Services.AddGrpc();
 builder.Services.AddMagicOnion(opt =>
 {
-    // ³ªÁß¿¡ ÇÊ¿äÇÒ¶§ Ã³¸®ÇÏ±â 
+    // ë¡œê·¸ ì²˜ë¦¬ìš© í•„í„° 
     opt.GlobalStreamingHubFilters.Add<LogFilter>();
 });
 
@@ -37,5 +38,6 @@ lifetime.ApplicationStarted.Register(() =>
 
 lifetime.ApplicationStopped.Register(() => { Logger.Log("Server app has stopped."); });
 
+// ì„œë²„ ì‹œìž‘ 
 app.Run();
 

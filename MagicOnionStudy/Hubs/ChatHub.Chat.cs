@@ -4,7 +4,7 @@ namespace MagicOnionServer.Hubs
 {
     public partial class ChatHub
     {
-        public async ValueTask<ResChatPacketResult> SendMessage(ReqChatPacket req)
+        public ValueTask<ResChatPacketResult> SendMessage(ReqChatPacket req)
         {
             var res = new ResChatPacketResult();
 
@@ -26,7 +26,7 @@ namespace MagicOnionServer.Hubs
                 Logger.Log(Extension.ToString(res));
             }
 
-            return res;
+            return ValueTask.FromResult(res);
         }
 
     }

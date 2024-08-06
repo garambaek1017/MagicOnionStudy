@@ -19,7 +19,7 @@ namespace MagicOnionServer.Hubs
             return ValueTask.CompletedTask;
         }
 
-        protected void BroadCast(string name, string message)
+        private void BroadCast(string name, string message)
         {
             this._room.All.OnSendReceiver(new BroadCastPacket()
             {

@@ -1,42 +1,57 @@
 ﻿using System.Collections.Concurrent;
+using MagicOnionServer.User;
 
-namespace MagicOnionServer
+namespace MagicOnionServer.Manager
 {
+    /// <summary>
+    /// 유저 관리 매니저
+    /// </summary>
     public class UserManager : Singleton<UserManager>
     {
-        public static int UserId;
-
-        private readonly ConcurrentDictionary<Guid, ChatUser> PlayerByConnectionId = new();
-        private readonly ConcurrentDictionary<long, ChatUser> PlayerByUserId = new();
+        // 서버에서 발급하는 유저 id 
+        private static int _userId = 0;
+        // connectionId로 관리하는 dic
+        private readonly ConcurrentDictionary<Guid, ChatUser> _userByConnectionId = new();
+        // userId로 관리하는 dic 
+        private readonly ConcurrentDictionary<long, ChatUser> _userByUserId = new();
 
         private UserManager()
         {
-            UserId = 0;
+            
         }
 
+        /// <summary>
+        /// 유저 증가시 userId 증가처리 
+        /// </summary>
         private void IncreaseUserId()
         {
-            Interlocked.Increment(ref UserId);
+            Interlocked.Increment(ref _userId);
         }
 
-        public long AddPlayer(Guid connectionId, string name)
+        /// <summary>
+        ///  신규 유저 접속시 dictionary에 추가 
+        /// </summary>
+        /// <param name="connectionId"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public long AddUser(Guid connectionId, string name)
         {
-            if (PlayerByConnectionId.ContainsKey(connectionId) == false)
+            if (_userByConnectionId.TryGetValue(connectionId, out var value) != false)
             {
-                var newUserid = UserId;
-                var newPlayer = new ChatUser(newUserid, connectionId, name);
-                PlayerByUserId.TryAdd(newUserid, newPlayer);
-
-                Logger.Log($"AddPlayer :: connectionId:{connectionId}, userId: {newPlayer.UserId}, name:{name}");
-
-                IncreaseUserId();
-
-                return newPlayer.UserId;
+                return value.UserId;
             }
-            else
-            {
-                return PlayerByConnectionId[connectionId].UserId;
-            }
+            
+            var newUserid = _userId;
+            var newPlayer = new ChatUser(newUserid, connectionId, name);
+                
+            _userByUserId.TryAdd(newUserid, newPlayer);
+            _userByConnectionId.TryAdd(connectionId, newPlayer);
+                
+            Logger.Log($"AddPlayer :: connectionId:{connectionId}, userId: {newPlayer.UserId}, name:{name}");
+
+            IncreaseUserId();
+
+            return newPlayer.UserId;
         }
     }
 }

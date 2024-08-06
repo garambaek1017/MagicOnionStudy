@@ -1,34 +1,18 @@
 ﻿using Grpc.Net.Client;
-using MagicOnion.Client;
-using MagicOnion.Serialization.MemoryPack;
-using Shared.Hubs;
-using Shared.Packets;
 using Shared.Util;
-using System.Drawing;
-using System.Runtime.CompilerServices;
 
 namespace MagicOnionStudyClient
 {
-    public class ChatClient : Singleton<ChatClient>
+    public abstract class ChatClient : Singleton<ChatClient>
     {
-        public Network Network { get; set; }
-        public bool IsRunning { get; set; } = false;
-        public string Nickname { get; set; }
-
         private ChatClient()
         {
 
         }
 
-        public List<BroadCastPacket> BroadCastPackets { get; set; } = new List<BroadCastPacket>();
-
-        public void WriteMessage()
-        {
-            foreach (var broadCastPacket in BroadCastPackets)
-            {
-                Console.WriteLine($">>>> [{broadCastPacket.Sender}]:{broadCastPacket.BroadCastMessage}");
-            }
-        }
+        private Network Network { get; set; }
+        public bool IsRunning { get; set; } = false;
+        public string Nickname { get; set; }
 
         public async Task ConnectAsync()
         {
@@ -38,7 +22,7 @@ namespace MagicOnionStudyClient
             var channel = GrpcChannel.ForAddress(address);
             Logger.Log("Start Connection...");
 
-            Network = new Network();
+            Network = new();
 
             await Network.ConnectAsync(channel);
         }
@@ -68,12 +52,6 @@ namespace MagicOnionStudyClient
                     await Network.SendMessage(message);
                 }
             }
-        }
-
-        public async Task Dispose()
-        {
-            await Network.DisposeAsync();
-            Logger.Log("Connection State : Disconnected");
         }
     }
 }

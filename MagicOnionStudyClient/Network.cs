@@ -4,13 +4,12 @@ using MagicOnion.Serialization.MemoryPack;
 using Shared.Hubs;
 using Shared.Packets;
 using Shared.Util;
-using System.Security.Cryptography.X509Certificates;
 
 namespace MagicOnionStudyClient
 {
     public class Network
     {
-        public IChatub ChatHub { get; set; }
+        private IChatHub ChatHub { get; set; }
 
         public Network()
         {
@@ -19,7 +18,7 @@ namespace MagicOnionStudyClient
 
         public async Task ConnectAsync(GrpcChannel channel)
         {
-            ChatHub = await StreamingHubClient.ConnectAsync<IChatub, IChatHubReceiver>(channel, new ChatHubReceiver(),
+            ChatHub = await StreamingHubClient.ConnectAsync<IChatHub, IChatHubReceiver>(channel, new ChatHubReceiver(),
                 serializerProvider: MemoryPackMagicOnionSerializerProvider.Instance);
 
             Logger.Log($"ConnectAsync, Connection is Success");

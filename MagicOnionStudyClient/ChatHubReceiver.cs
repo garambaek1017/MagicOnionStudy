@@ -1,6 +1,5 @@
 ﻿using Shared.Hubs;
 using Shared.Packets;
-using System.Security.Cryptography.X509Certificates;
 
 namespace MagicOnionStudyClient
 {
@@ -16,21 +15,7 @@ namespace MagicOnionStudyClient
 
         public void OnSendReceiver(BroadCastPacket packet)
         {
-            if(packet.Sender.ToLower() == "server")
-            {
-                Console.BackgroundColor = ConsoleColor.DarkYellow;
-            }
-            else if (packet.Sender == ChatClient.Instance.Nickname)
-            {
-                Console.BackgroundColor = ConsoleColor.DarkBlue;
-            }
-            else
-            {
-                Console.BackgroundColor = ConsoleColor.DarkGreen;
-            }
-            
             Console.WriteLine($"[>>>] Sender:{packet.Sender}, Message:{packet.BroadCastMessage}");
-            Console.BackgroundColor = ConsoleColor.Black;
         }
     }
 }

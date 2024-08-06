@@ -3,7 +3,7 @@ using Shared.Hubs;
 
 namespace MagicOnionServer.Hubs
 {
-    public partial class ChatHub : StreamingHubBase<IChatub, IChatHubReceiver>, IChatub
+    public partial class ChatHub : StreamingHubBase<IChatHub, IChatHubReceiver>, IChatHub
     {
         private IGroup<IChatHubReceiver> _room;
 

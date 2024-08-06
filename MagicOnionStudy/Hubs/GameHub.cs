@@ -6,9 +6,9 @@ using System.Numerics;
 
 namespace MagicOnionServer.Hubs
 {
-    public partial class GameHub : StreamingHubBase<IGameHub, IGameHubReceiver>, IGameHub
+    public partial class GameHub : StreamingHubBase<IChatub, IChatHubReceiver>, IChatub
     {
-        private IGroup<IGameHubReceiver> _room;
+        private IGroup<IChatHubReceiver> _room;
 
         protected override ValueTask OnConnected()
         {

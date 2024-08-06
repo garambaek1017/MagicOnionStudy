@@ -10,12 +10,12 @@ namespace MagicOnionServer.Hubs
             this._room = await this.Group.AddAsync(Constant.RoomName);
             var newUserId = PlayerManager.Instance.AddPlayer(ConnectionId, name);
 
-            this._room.All.OnSendReceiver(new BroadCastPacket()
-            {
-                Sender = name,
-                BroadCastMessage = "Newbie is Connected"
-            });
-
+            //this._room.All.OnSendReceiver(new BroadCastPacket()
+            //{
+            //    Sender = name,
+            //    BroadCastMessage = "Newbie is Connected"
+            //});
+            
             // todo : 로그인 처리 
             var res = new ResLoginPacketResult
             {

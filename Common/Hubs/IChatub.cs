@@ -7,7 +7,7 @@ namespace Shared.Hubs
     /// <summary>
     /// Client -> ServerAPI(streaming)
     /// </summary>
-    public interface IGameHub : IStreamingHub<IGameHub, IGameHubReceiver>
+    public interface IChatub : IStreamingHub<IChatub, IChatHubReceiver>
     {
         ValueTask<ResLoginPacketResult> Login(string name);
 

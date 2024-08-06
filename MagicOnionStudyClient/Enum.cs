@@ -1,8 +1,9 @@
 ﻿namespace MagicOnionStudyClient
 {
-    public enum ClientState
+    public enum ChatProgramState
     {
         None = 0,
-        Chat = 1,
+        Running = 1, 
+        Chat = 2,
     }
 }

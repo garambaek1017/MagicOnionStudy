@@ -16,10 +16,16 @@ namespace MagicOnionStudyClient
 
         public void OnSendReceiver(BroadCastPacket packet)
         {
-            ChatClient.Instance.BroadCastPackets.Add(packet);
-
-            ChatClient.Instance.DisplayCommand();
-            ChatClient.Instance.WriteMessage();
+            if (packet.Sender == ChatClient.Instance.Nickname)
+            {
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+            }
+            else
+            {
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+            }
+            Console.WriteLine($"[>>>] Sender:{packet.Sender}, Message:{packet.BroadCastMessage}");
+            Console.BackgroundColor = ConsoleColor.Black;
         }
     }
 }

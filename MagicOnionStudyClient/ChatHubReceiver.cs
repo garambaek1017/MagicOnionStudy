@@ -16,7 +16,11 @@ namespace MagicOnionStudyClient
 
         public void OnSendReceiver(BroadCastPacket packet)
         {
-            if (packet.Sender == ChatClient.Instance.Nickname)
+            if(packet.Sender.ToLower() == "server")
+            {
+                Console.BackgroundColor = ConsoleColor.DarkYellow;
+            }
+            else if (packet.Sender == ChatClient.Instance.Nickname)
             {
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
             }
@@ -24,6 +28,7 @@ namespace MagicOnionStudyClient
             {
                 Console.BackgroundColor = ConsoleColor.DarkGreen;
             }
+            
             Console.WriteLine($"[>>>] Sender:{packet.Sender}, Message:{packet.BroadCastMessage}");
             Console.BackgroundColor = ConsoleColor.Black;
         }

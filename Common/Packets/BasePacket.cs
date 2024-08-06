@@ -11,7 +11,7 @@ namespace Shared.Packets
     [MemoryPackable]
     public partial class BasePacket
     {
-        public int UserId { get; set; }
+        public long UserId { get; set; }
         public string Nickname { get; set; }
 
     }
@@ -19,9 +19,9 @@ namespace Shared.Packets
     [MemoryPackable]
     public partial class BaseResultPacket
     {
-        public int Code { get; set; }
+        public ErrorCode Code { get; set; }
 
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         public string Nickname { get; set; }
     }

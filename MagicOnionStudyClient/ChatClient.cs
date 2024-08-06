@@ -70,7 +70,7 @@ namespace MagicOnionStudyClient
             }
         }
 
-        public async void Dispose()
+        public async Task Dispose()
         {
             await Network.DisposeAsync();
             Logger.Log("Connection State : Disconnected");

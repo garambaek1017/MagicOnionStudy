@@ -2,6 +2,6 @@
 {
     public class Constant
     {
-        public static readonly string RoomName ="ChatRoom";
+        public static readonly string RoomName = "ChatRoom";
     }
 }

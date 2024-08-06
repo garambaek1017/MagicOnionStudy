@@ -3,14 +3,15 @@ using Shared.Packets;
 
 namespace Shared.Hubs
 {
-    
     /// <summary>
-    /// Client -> ServerAPI(streaming)
+    /// Client -> Server 
     /// </summary>
     public interface IChatub : IStreamingHub<IChatub, IChatHubReceiver>
     {
-        ValueTask<ResLoginPacketResult> Login(string name);
+        // Client, login to Server
+        ValueTask<ResLoginPacketResult> Login(ReqLoginPacket pkt);
 
+        // Client, SendMessage to Server
         ValueTask<ResChatPacketResult> SendMessage(ReqChatPacket chatPacket);
     }
 }

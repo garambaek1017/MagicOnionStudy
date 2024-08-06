@@ -6,7 +6,7 @@ namespace Shared.Service
     /// <summary>
     /// Client -> ServerAPI 
     /// </summary>
-    public interface IGameService : IService<IGameService>
+    public interface IChatService : IService<IChatService>
     {
         ValueTask<ResLoginPacketResult> Login(string name);
     }

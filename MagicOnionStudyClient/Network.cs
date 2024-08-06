@@ -27,7 +27,12 @@ namespace MagicOnionStudyClient
 
         public async Task Login(string nickname)
         {
-            var response = await ChatHub.Login(nickname);
+            var reqPkt = new ReqLoginPacket()
+            {
+                Nickname = nickname
+            };
+
+            var response = await ChatHub.Login(reqPkt);
             Logger.Log($"Login, code:: {response.Code}, userId:: {response.UserId}");
         }
 

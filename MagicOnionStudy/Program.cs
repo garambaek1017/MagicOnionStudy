@@ -3,7 +3,6 @@ using MagicOnion.Serialization.MemoryPack;
 using MagicOnion.Server;
 using MagicOnionServer.Filters;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Shared.Util;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +21,7 @@ MagicOnionSerializerProvider.Default = MemoryPackMagicOnionSerializerProvider.In
 builder.Services.AddGrpc();
 builder.Services.AddMagicOnion(opt =>
 {
+    // 나중에 필요할때 처리하기 
     opt.GlobalStreamingHubFilters.Add<LogFilter>();
 });
 
@@ -32,9 +32,8 @@ var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
 lifetime.ApplicationStarted.Register(() =>
 {
     Logger.Log("#### MagicOnionServer Start ####");
-    
-});
 
+});
 
 lifetime.ApplicationStopped.Register(() => { Logger.Log("Server app has stopped."); });
 

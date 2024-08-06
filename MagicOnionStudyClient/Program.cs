@@ -13,4 +13,5 @@ await ChatClient.Instance.Login();
 Console.WriteLine("Start chatting. Feel free to write anything, if you want to exit, type 'exit' ");
 Console.WriteLine("---------------------------------------------------");
 
+// Chat
 await ChatClient.Instance.SendChat();

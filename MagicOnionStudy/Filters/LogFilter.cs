@@ -1,6 +1,5 @@
 ﻿using MagicOnion.Server.Filters;
 using MagicOnion.Server.Hubs;
-using Shared.Util;
 
 namespace MagicOnionServer.Filters
 {

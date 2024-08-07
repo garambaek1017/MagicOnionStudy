@@ -3,6 +3,7 @@ using MagicOnion.Server.Hubs;
 
 namespace MagicOnionServer.Filters
 {
+
     public class LogFilter : IStreamingHubFilter
     {
         public async ValueTask Invoke(StreamingHubContext context, Func<StreamingHubContext, ValueTask> next)

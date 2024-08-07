@@ -12,6 +12,9 @@ namespace Shared.Hubs
         ValueTask<ResLoginPacketResult> Login(ReqLoginPacket pkt);
 
         // Client, SendMessage to Server
-        ValueTask<ResChatPacketResult> SendMessage(ReqChatPacket chatPacket);
+        ValueTask<ResChatPacketResult> SendMessage(ReqChatPacket pkt);
+
+        // Client, Logout to Server
+        ValueTask<ResLogoutPacketResult> Logout(ReqLogoutPacket pkt);
     }
 }

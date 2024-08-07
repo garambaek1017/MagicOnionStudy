@@ -22,8 +22,8 @@ MagicOnionSerializerProvider.Default = MemoryPackMagicOnionSerializerProvider.In
 builder.Services.AddGrpc();
 builder.Services.AddMagicOnion(opt =>
 {
-    // 로그 처리용 필터 
-    opt.GlobalStreamingHubFilters.Add<LogFilter>();
+    // todo : Thinking about how to use this feature.
+    //opt.GlobalStreamingHubFilters.Add<LogFilter>();
 });
 
 var app = builder.Build();

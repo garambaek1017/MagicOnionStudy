@@ -3,7 +3,7 @@ using Shared.Util;
 
 namespace MagicOnionStudyClient
 {
-    public abstract class ChatClient : Singleton<ChatClient>
+    public class ChatClient : Singleton<ChatClient>
     {
         private ChatClient()
         {

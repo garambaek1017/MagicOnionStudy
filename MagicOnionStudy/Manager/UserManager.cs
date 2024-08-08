@@ -74,5 +74,14 @@ namespace MagicOnionServer.Manager
         {
             return _userByConnectionId.ContainsKey(connectionId);
         }
+
+        public Guid GetConnectionId(long userId)
+        {
+            if (_userByUserId.TryGetValue(userId, out var value) == false)
+            {
+                return Guid.Empty;
+            }
+            return value.ConnectionId;
+        }
     }
 }

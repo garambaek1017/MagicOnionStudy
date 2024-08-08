@@ -1,4 +1,6 @@
 ﻿using MagicOnion.Server.Hubs;
+using MagicOnionServer.Manager;
+using Shared;
 using Shared.Hubs;
 
 namespace MagicOnionServer.Hubs
@@ -9,13 +11,13 @@ namespace MagicOnionServer.Hubs
 
         protected override ValueTask OnConnected()
         {
-            Console.WriteLine($"[ChatHub:OnConnected] ConnectionId:{ConnectionId} is connected.");
+            Logger.Log($"[ChatHub:OnConnected] ConnectionId:{ConnectionId} is connected.");
             return ValueTask.CompletedTask;
         }
 
         protected override ValueTask OnDisconnected()
         {
-            Console.WriteLine($"[ChatHub:OnConnected] ConnectionId:{ConnectionId} is disconnected.");
+            Logger.Log($"[ChatHub:OnDisconnected] ConnectionId:{ConnectionId} is disconnected.");
             return ValueTask.CompletedTask;
         }
 
@@ -26,6 +28,24 @@ namespace MagicOnionServer.Hubs
                 Sender = name,
                 BroadCastMessage = message, 
             });
+        }
+
+        private void OnForceClose(long userId = 0)
+        {
+            if (userId == 0)
+            {
+                // 전체 킥 
+            }
+            else
+            {
+                var guid = UserManager.Instance.GetConnectionId(userId);
+
+                if(guid != null)
+                {
+                    this._room.Single(guid).OnForceClose(ErrorCode.Success);
+                }
+                
+            }
         }
     }
 }

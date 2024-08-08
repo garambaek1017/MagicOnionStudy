@@ -1,4 +1,5 @@
-﻿using Shared.Hubs;
+﻿using Shared;
+using Shared.Hubs;
 using Shared.Packets;
 
 namespace MagicOnionStudyClient
@@ -8,9 +9,9 @@ namespace MagicOnionStudyClient
     /// </summary>
     public class ChatHubReceiver : IChatHubReceiver
     {
-        public void OnForceClose(int errorCode)
+        public async Task OnForceClose(ErrorCode errorCode)
         {
-            ChatClient.Instance.Logout();
+            await ChatClient.Instance.Logout();
         }
 
         public void OnSendReceiver(BroadCastPacket packet)

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using MagicOnionServer.User;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace MagicOnionServer.Manager
 {
@@ -17,7 +18,7 @@ namespace MagicOnionServer.Manager
 
         private UserManager()
         {
-            
+
         }
 
         /// <summary>
@@ -40,18 +41,38 @@ namespace MagicOnionServer.Manager
             {
                 return value.UserId;
             }
-            
+
             var newUserid = _userId;
             var newPlayer = new ChatUser(newUserid, connectionId, name);
-                
+
             _userByUserId.TryAdd(newUserid, newPlayer);
             _userByConnectionId.TryAdd(connectionId, newPlayer);
-                
+
             Logger.Log($"AddPlayer :: connectionId:{connectionId}, userId: {newPlayer.UserId}, name:{name}");
 
             IncreaseUserId();
 
             return newPlayer.UserId;
+        } 
+
+        public long RemoveUser(Guid connectionId)
+        {
+            if (_userByConnectionId.TryGetValue(connectionId, out var value) == false)
+            {
+                return 0;
+            }
+
+            _userByUserId.TryRemove(value.UserId, out _);
+            _userByConnectionId.TryRemove(connectionId, out _);
+
+            Logger.Log($"RemovePlayer :: connectionId:{connectionId}, userId: {value.UserId}, name:{value.Name}");
+
+            return value.UserId;
+        }
+
+        public bool CheckLogin(Guid connectionId)
+        {
+            return _userByConnectionId.ContainsKey(connectionId);
         }
     }
 }

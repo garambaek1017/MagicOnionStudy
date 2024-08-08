@@ -1,4 +1,5 @@
-﻿using Shared;
+﻿using MagicOnionServer.Manager;
+using Shared;
 
 namespace MagicOnionServer.Hubs
 {
@@ -12,9 +13,16 @@ namespace MagicOnionServer.Hubs
             {
                 Logger.Log($"{Extension.ToString(req)}");
 
-                BroadCast(req.Nickname, req.Message);
-
-                res.Code = ErrorCode.Success;
+                if(UserManager.Instance.CheckLogin(Context.ContextId) == true)
+                {
+                    BroadCast(req.Nickname, req.Message);
+                    res.Code = ErrorCode.Success;
+                }
+                else
+                {
+                    res.Code = ErrorCode.Fail;
+                    res.Message = "You are not login";
+                }
             }
             catch (Exception ex)
             {

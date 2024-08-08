@@ -26,33 +26,47 @@ namespace MagicOnionStudyClient
 
         public async Task Login(string nickname)
         {
-            var reqPkt = new ReqLoginPacket()
+            var req = new ReqLoginPacket()
             {
                 Nickname = nickname
             };
 
-            var response = await ChatHub.Login(reqPkt);
-            Logger.Log($"Login, code:: {response.Code}, userId:: {response.UserId}");
+            var res = await ChatHub.Login(req);
+            Logger.Log($"Login, code:: {res.Code}");
         }
 
         public async Task SendMessage(string message)
         {
-            var response = await ChatHub.SendMessage(new ReqChatPacket()
+            var req = new ReqChatPacket()
             {
                 Nickname = ChatClient.Instance.Nickname,
                 Message = message
-            });
+            };
 
-            if (response.Code != 0)
-            {
-                Logger.Log("SendMessage Fail !!");
-            }
+            var res = await ChatHub.SendMessage(req);
+            Logger.Log($"SendMessage, code:: {res.Code} ");
         }
 
         public async Task DisposeAsync()
         {
             await ChatHub.DisposeAsync();
             Logger.Log("DisposeAsync..");
+        }
+
+        public async Task Logout()
+        {
+            var req = new ReqLogoutPacket()
+            {
+                Nickname = ChatClient.Instance.Nickname,
+            };
+
+            var res = await ChatHub.Logout(req);
+            Logger.Log($"Logout, code:: {res.Code}");
+
+            if(res.Code == Shared.ErrorCode.Success)
+            {
+                await DisposeAsync();
+            }
         }
     }
 }

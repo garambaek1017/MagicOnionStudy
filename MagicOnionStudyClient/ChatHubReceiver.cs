@@ -10,7 +10,7 @@ namespace MagicOnionStudyClient
     {
         public void OnForceClose(int errorCode)
         {
-            throw new NotImplementedException();
+            ChatClient.Instance.Logout();
         }
 
         public void OnSendReceiver(BroadCastPacket packet)

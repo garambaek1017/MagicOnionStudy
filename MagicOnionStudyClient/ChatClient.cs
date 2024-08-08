@@ -43,15 +43,19 @@ namespace MagicOnionStudyClient
             {
                 var message = Console.ReadLine();
 
-                if (message == "exit")
+                if(message == "logout")
                 {
-                    await Network.DisposeAsync();
+                    await Logout();
                 }
                 else
                 {
                     await Network.SendMessage(message);
                 }
             }
+        }
+        public async Task Logout()
+        {
+            await Network.Logout();
         }
     }
 }

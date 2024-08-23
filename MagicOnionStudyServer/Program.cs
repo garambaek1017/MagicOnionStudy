@@ -1,7 +1,5 @@
 using MagicOnion.Serialization;
 using MagicOnion.Serialization.MemoryPack;
-using MagicOnion.Server;
-using MagicOnionServer.Filters;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);

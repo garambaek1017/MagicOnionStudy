@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using MagicOnionServer.User;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Shared.Util;
 
 namespace MagicOnionServer.Manager
 {

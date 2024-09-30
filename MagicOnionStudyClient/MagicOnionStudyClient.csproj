@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Common\Shared.csproj" />
+    <ProjectReference Include="..\Network\Network.csproj" />
+    <ProjectReference Include="..\Packets\Packets.csproj" />
   </ItemGroup>
 
 </Project>

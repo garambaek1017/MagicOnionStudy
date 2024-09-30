@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>11</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Grpc.AspNetCore" Version="2.66.0" />
+      <PackageReference Include="MagicOnion" Version="6.1.3" />
+      <PackageReference Include="MagicOnion.Serialization.MemoryPack" Version="6.1.4-preview" />
+    </ItemGroup>
+
+</Project>

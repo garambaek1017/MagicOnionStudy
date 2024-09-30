@@ -1,8 +1,8 @@
 ﻿using Grpc.Net.Client;
 using MagicOnion.Client;
 using MagicOnion.Serialization.MemoryPack;
-using Shared.Hubs;
-using Shared.Packets;
+using Network.Hubs;
+using Packets;
 using Shared.Util;
 
 namespace MagicOnionStudyClient
@@ -31,8 +31,8 @@ namespace MagicOnionStudyClient
                 Nickname = nickname
             };
 
-            var res = await ChatHub.Login(req);
-            Logger.Log($"Login, code:: {res.Code}");
+            var res = await ChatHub.Login(req.ToJson());
+            Logger.Log($"Login, code:: {res}");
         }
 
         public async Task SendMessage(string message)
@@ -43,8 +43,8 @@ namespace MagicOnionStudyClient
                 Message = message
             };
 
-            var res = await ChatHub.SendMessage(req);
-            Logger.Log($"SendMessage, code:: {res.Code} ");
+            var res = await ChatHub.SendMessage(req.ToJson());
+            Logger.Log($"SendMessage, code:: {res} ");
         }
 
         public async Task DisposeAsync()
@@ -60,10 +60,11 @@ namespace MagicOnionStudyClient
                 Nickname = ChatClient.Instance.Nickname,
             };
 
-            var res = await ChatHub.Logout(req);
-            Logger.Log($"Logout, code:: {res.Code}");
+            var res = await ChatHub.Logout(req.ToJson());
+            Logger.Log($"Logout, code:: {res}");
 
-            if(res.Code == Shared.ErrorCode.Success)
+            var resLogoutPacketResult = res.ToObject<ResLogoutPacketResult>();
+            if(resLogoutPacketResult.Code == Shared.ErrorCode.Success)
             {
                 await DisposeAsync();
             }

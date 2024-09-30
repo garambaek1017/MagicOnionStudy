@@ -1,5 +1,5 @@
-﻿using MagicOnion;
-using Shared.Packets;
+﻿using System.Threading.Tasks;
+using MagicOnion;
 
 namespace Shared.Service
 {
@@ -8,6 +8,6 @@ namespace Shared.Service
     /// </summary>
     public interface IChatService : IService<IChatService>
     {
-        ValueTask<ResLoginPacketResult> Login(string name);
+        ValueTask<string> Login(string name);
     }
 }

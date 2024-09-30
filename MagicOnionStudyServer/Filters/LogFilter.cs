@@ -1,9 +1,9 @@
 ﻿using MagicOnion.Server.Filters;
 using MagicOnion.Server.Hubs;
+using Shared.Util;
 
 namespace MagicOnionServer.Filters
 {
-
     public class LogFilter : IStreamingHubFilter
     {
         public async ValueTask Invoke(StreamingHubContext context, Func<StreamingHubContext, ValueTask> next)

@@ -1,6 +1,7 @@
 using MagicOnion.Serialization;
 using MagicOnion.Serialization.MemoryPack;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Shared.Util;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,7 +32,6 @@ var lifetime = app.Services.GetRequiredService<IHostApplicationLifetime>();
 lifetime.ApplicationStarted.Register(() =>
 {
     Logger.Log("#### MagicOnionServer Start ####");
-
 });
 
 lifetime.ApplicationStopped.Register(() => { Logger.Log("Server app has stopped."); });

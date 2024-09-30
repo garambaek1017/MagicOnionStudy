@@ -1,7 +1,9 @@
 ﻿using MagicOnion.Server.Hubs;
 using MagicOnionServer.Manager;
+using Network.Hubs;
+using Packets;
 using Shared;
-using Shared.Hubs;
+using Shared.Util;
 
 namespace MagicOnionServer.Hubs
 {
@@ -23,11 +25,14 @@ namespace MagicOnionServer.Hubs
 
         private void BroadCast(string name, string message)
         {
-            this._room.All.OnSendReceiver(new BroadCastPacket()
+            
+            var broadCastPacket = new BroadCastPacket()
             {
                 Sender = name,
-                BroadCastMessage = message, 
-            });
+                BroadCastMessage = message,
+            };
+            
+            this._room.All.OnSendReceiver(broadCastPacket.ToJson());
         }
 
         private void OnForceClose(long userId = 0)
@@ -40,12 +45,13 @@ namespace MagicOnionServer.Hubs
             {
                 var guid = UserManager.Instance.GetConnectionId(userId);
 
-                if(guid != null)
+                if(guid != Guid.Empty)
                 {
                     this._room.Single(guid).OnForceClose(ErrorCode.Success);
                 }
-                
             }
         }
+       
+        
     }
 }

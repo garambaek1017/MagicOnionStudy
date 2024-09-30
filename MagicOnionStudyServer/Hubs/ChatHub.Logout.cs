@@ -1,18 +1,18 @@
 ﻿using MagicOnionServer.Manager;
+using Packets;
 using Shared;
+using Shared.Util;
 
 namespace MagicOnionServer.Hubs
 {
     public partial class ChatHub
     {
-        public async ValueTask<ResLogoutPacketResult> Logout(ReqLogoutPacket req)
+        public async ValueTask<string> Logout(string pkt)
         {
             var res = new ResLogoutPacketResult();
-
+            var req = pkt.ToObject<ReqLogoutPacket>();
             try
             {
-                Logger.Log(Extension.ToString(req));
-                
                 // 그룹에서 보내면 지는 방에서 제거라서 자기는 브로드 캐스트를 받을수없지만
                 // 남한테 쏠수있음 
                 await this._room.RemoveAsync(this.Context);
@@ -27,9 +27,9 @@ namespace MagicOnionServer.Hubs
             }
             finally
             {
-                Logger.Log(Extension.ToString(res));
+                Logger.Log(Extension.ToLogString(res));
             }
-            return res;
+            return res.ToJson();
         }
     }
 }

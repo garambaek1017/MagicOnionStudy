@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MagicOnionStudyClient", "Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Common\Shared.csproj", "{F90EF2B6-4A43-4389-9974-7D578C922D76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Packets", "Packets\Packets.csproj", "{74580C7E-0C86-4171-BC93-E8C30B54E556}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Network", "Network\Network.csproj", "{2C1E8B57-CCBA-4447-8924-B59C1174BFBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{F90EF2B6-4A43-4389-9974-7D578C922D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F90EF2B6-4A43-4389-9974-7D578C922D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F90EF2B6-4A43-4389-9974-7D578C922D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74580C7E-0C86-4171-BC93-E8C30B54E556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74580C7E-0C86-4171-BC93-E8C30B54E556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74580C7E-0C86-4171-BC93-E8C30B54E556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74580C7E-0C86-4171-BC93-E8C30B54E556}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C1E8B57-CCBA-4447-8924-B59C1174BFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1E8B57-CCBA-4447-8924-B59C1174BFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1E8B57-CCBA-4447-8924-B59C1174BFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1E8B57-CCBA-4447-8924-B59C1174BFBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

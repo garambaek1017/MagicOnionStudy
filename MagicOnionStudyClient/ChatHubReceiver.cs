@@ -1,6 +1,7 @@
-﻿using Shared;
-using Shared.Hubs;
-using Shared.Packets;
+﻿using Network.Hubs;
+using Packets;
+using Shared;
+using Shared.Util;
 
 namespace MagicOnionStudyClient
 {
@@ -9,13 +10,14 @@ namespace MagicOnionStudyClient
     /// </summary>
     public class ChatHubReceiver : IChatHubReceiver
     {
-        public async Task OnForceClose(ErrorCode errorCode)
+        public async void OnForceClose(ErrorCode errorCode)
         {
             await ChatClient.Instance.Logout();
         }
 
-        public void OnSendReceiver(BroadCastPacket packet)
+        public void OnSendReceiver(string pkt)
         {
+            var packet = pkt.ToObject<BroadCastPacket>();
             Console.WriteLine($"[>>>] Sender:{packet.Sender}, Message:{packet.BroadCastMessage}");
         }
     }

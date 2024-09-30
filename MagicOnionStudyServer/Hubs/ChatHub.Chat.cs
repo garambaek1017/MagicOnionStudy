@@ -1,19 +1,21 @@
 ﻿using MagicOnionServer.Manager;
+using Packets;
 using Shared;
+using Shared.Util;
 
 namespace MagicOnionServer.Hubs
 {
     public partial class ChatHub
     {
-        public ValueTask<ResChatPacketResult> SendMessage(ReqChatPacket req)
+        public ValueTask<string> SendMessage(string pkt)
         {
             var res = new ResChatPacketResult();
-
+            
             try
             {
-                Logger.Log($"{Extension.ToString(req)}");
-
-                if(UserManager.Instance.CheckLogin(Context.ContextId) == true)
+                var req = pkt.ToObject<ReqChatPacket>();
+                    
+                if (UserManager.Instance.CheckLogin(Context.ContextId) == true)
                 {
                     BroadCast(req.Nickname, req.Message);
                     res.Code = ErrorCode.Success;
@@ -31,11 +33,10 @@ namespace MagicOnionServer.Hubs
             }
             finally
             {
-                Logger.Log(Extension.ToString(res));
+                Logger.Log(Extension.ToLogString(res));
             }
 
-            return ValueTask.FromResult(res);
+            return ValueTask.FromResult(res.ToJson());
         }
-
     }
 }

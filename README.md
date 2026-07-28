@@ -1,8 +1,9 @@
 ﻿# 🧅 MagicOnionStudy
 
-MagicOnion StreamingHub를 사용해서 .NET 서버, 콘솔 클라이언트, Unity 클라이언트가 같은 Hub 계약으로 통신하는 학습용 프로젝트입니다.
+- MagicOnion StreamingHub를 사용해서 .NET 서버, 콘솔 클라이언트, Unity 클라이언트가 같은 Hub 계약으로 통신하는 프로젝트
 
-서버는 ASP.NET Core + MagicOnion으로 실행되고, 클라이언트는 로그인, 채팅 메시지 전송, 브로드캐스트 수신, 로그아웃 흐름을 테스트합니다.
+- 서버는 ASP.NET Core + MagicOnion으로 실행되고, 클라이언트는 로그인, 채팅 메시지 전송, 브로드캐스트 수신, 로그아웃 흐름을 테스트
+
 
 ## 🛠️ 기술 스택
 

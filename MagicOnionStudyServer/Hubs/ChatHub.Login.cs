@@ -1,6 +1,5 @@
 ﻿using MagicOnionServer.Manager;
 using Packets;
-using Shared;
 using Shared.Util;
 
 namespace MagicOnionServer.Hubs
@@ -36,7 +35,7 @@ namespace MagicOnionServer.Hubs
             } 
             finally
             {
-                Logger.Log(Extension.ToLogString(res));
+                Logger.Log(res.ToLogString());
             }
             return res.ToJson();
         }

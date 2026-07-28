@@ -33,7 +33,7 @@ namespace MagicOnionServer.Hubs
             }
             finally
             {
-                Logger.Log(Extension.ToLogString(res));
+                Logger.Log(res.ToLogString());
             }
 
             return ValueTask.FromResult(res.ToJson());

@@ -6,6 +6,11 @@
         public long UserId { get; set; }
         public Guid ConnectionId { get; set; }
         public string Name { get; set; }
+        public ChatUser()
+        {
+            
+        }
+        
         public ChatUser(long userId, Guid connectionId, string name)
         {
             UserId = userId;

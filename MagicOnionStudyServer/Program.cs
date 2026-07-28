@@ -22,7 +22,7 @@ builder.Services.AddGrpc();
 builder.Services.AddMagicOnion(opt =>
 {
     // todo : Thinking about how to use this feature.
-    //opt.GlobalStreamingHubFilters.Add<LogFilter>();
+    // opt.GlobalStreamingHubFilters.Add<LogFilter>();
 });
 
 var app = builder.Build();

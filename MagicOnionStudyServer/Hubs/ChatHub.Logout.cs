@@ -10,6 +10,7 @@ namespace MagicOnionServer.Hubs
         public async ValueTask<string> Logout(string pkt)
         {
             var res = new ResLogoutPacketResult();
+            
             var req = pkt.ToObject<ReqLogoutPacket>();
             try
             {
@@ -27,7 +28,7 @@ namespace MagicOnionServer.Hubs
             }
             finally
             {
-                Logger.Log(Extension.ToLogString(res));
+                Logger.Log(res.ToLogString());
             }
             return res.ToJson();
         }

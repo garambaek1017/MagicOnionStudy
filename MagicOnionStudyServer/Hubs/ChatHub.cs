@@ -14,27 +14,34 @@ namespace MagicOnionServer.Hubs
         protected override ValueTask OnConnected()
         {
             Logger.Log($"[ChatHub:OnConnected] ConnectionId:{ConnectionId} is connected.");
+
             return ValueTask.CompletedTask;
         }
         
-        protected override async ValueTask OnDisconnected()
+        protected override ValueTask OnDisconnected()
         {
-            Logger.Log($"[ChatHub:OnDisconnected] ConnectionId:{ConnectionId} is disconnected.");
+            var connectionId = ConnectionId;
+            var contextId = Context.ContextId;
 
-            UserManager.Instance.RemoveUser(Context.ContextId);
-
-            if (_room is not null)
+            try
             {
-                try
-                {
-                    await _room.RemoveAsync(Context);
-                }
-                catch (Exception ex)
-                {
-                    Logger.Log($"Remove group failed on disconnected: {ex.Message}");
-                }
+                // 이미 제거되어 있어도 예외가 나지 않도록
+                // RemoveUser가 멱등성 있게 구현되어 있어야 합니다.
+                UserManager.Instance.RemoveUser(contextId);
             }
+            catch (Exception ex)
+            {
+                Logger.Log(
+                    $"[ChatHub:OnDisconnected] User cleanup failed. " +
+                    $"ConnectionId:{connectionId}, Error:{ex}");
+            }
+
+            Logger.Log(
+                $"[ChatHub:OnDisconnected] ConnectionId:{connectionId} is disconnected.");
+
+            return ValueTask.CompletedTask;
         }
+        
 
         private void BroadCast(string name, string message)
         {

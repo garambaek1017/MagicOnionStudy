@@ -22,7 +22,7 @@ namespace MagicOnionStudyClient
             var channel = GrpcChannel.ForAddress(address);
             Logger.Log("Start Connection...");
 
-            Network = new();
+            Network = new Network();
 
             await Network.ConnectAsync(channel);
         }
@@ -54,7 +54,7 @@ namespace MagicOnionStudyClient
                     break;
                 }
 
-                if(message == "logout" || message == "exit")
+                if(message is "logout" or "exit")
                 {
                     await Logout();
                     IsRunning = false;

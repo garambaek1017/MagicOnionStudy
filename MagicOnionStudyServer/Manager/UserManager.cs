@@ -48,7 +48,7 @@ namespace MagicOnionServer.Manager
             _userByUserId.TryAdd(newUserid, newPlayer);
             _userByConnectionId.TryAdd(connectionId, newPlayer);
 
-            Logger.Log($"AddPlayer :: connectionId:{connectionId}, userId: {newPlayer.UserId}, name:{name}");
+            Logger.Log($"AddUser :: connectionId:{connectionId}, userId: {newPlayer.UserId}, name:{name}");
 
             IncreaseUserId();
 
@@ -65,7 +65,7 @@ namespace MagicOnionServer.Manager
             _userByUserId.TryRemove(value.UserId, out _);
             _userByConnectionId.TryRemove(connectionId, out _);
 
-            Logger.Log($"RemovePlayer :: connectionId:{connectionId}, userId: {value.UserId}, name:{value.Name}");
+            Logger.Log($"RemoveUser :: connectionId:{connectionId}, userId: {value.UserId}, name:{value.Name}");
 
             return value.UserId;
         }
@@ -77,11 +77,7 @@ namespace MagicOnionServer.Manager
 
         public Guid GetConnectionId(long userId)
         {
-            if (_userByUserId.TryGetValue(userId, out var value) == false)
-            {
-                return Guid.Empty;
-            }
-            return value.ConnectionId;
+            return _userByUserId.TryGetValue(userId, out var value) == false ? Guid.Empty : value.ConnectionId;
         }
     }
 }

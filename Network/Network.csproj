@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <LangVersion>9</LangVersion>
         <Nullable>enable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MagicOnion.Abstractions" Version="7.0.0-preview.5" />
+      <PackageReference Include="MagicOnion.Abstractions" Version="7.0.1" />
     </ItemGroup>
 
     <ItemGroup>

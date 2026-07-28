@@ -1,6 +1,6 @@
 ﻿using Shared;
 
-namespace Network.Hubs
+namespace Network.Hub
 {
     // server -> client definition
     public interface IChatHubReceiver

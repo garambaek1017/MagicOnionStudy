@@ -1,6 +1,6 @@
 ﻿using MagicOnion.Server.Hubs;
 using MagicOnionServer.Manager;
-using Network.Hubs;
+using Network.Hub;
 using Packets;
 using Shared;
 using Shared.Util;
@@ -32,7 +32,7 @@ namespace MagicOnionServer.Hubs
                 BroadCastMessage = message,
             };
             
-            this._room.All.OnSendReceiver(broadCastPacket.ToJson());
+            _room.All.OnSendReceiver(broadCastPacket.ToJson());
         }
 
         private void OnForceClose(long userId = 0)

@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <LangVersion>11</LangVersion>
+    <LangVersion>9</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MagicOnion" Version="7.0.0-preview.5" />
+    <PackageReference Include="MagicOnion" Version="7.0.1" />
     <PackageReference Include="MagicOnion.Serialization.MemoryPack" Version="7.0.0-preview.5-preview" />
     <PackageReference Include="MemoryPack.Core" Version="1.21.1" />
   </ItemGroup>

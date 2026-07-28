@@ -1,15 +1,16 @@
 ﻿using MemoryPack;
 
-namespace Packets;
-
-[MemoryPackable]
-public partial class ReqLogoutPacket : BasePacket
+namespace Packets
 {
+    [MemoryPackable]
+    public partial class ReqLogoutPacket : BasePacket
+    {
 
-}
+    }
 
-[MemoryPackable]
-public partial class ResLogoutPacketResult : BaseResultPacket
-{
+    [MemoryPackable]
+    public partial class ResLogoutPacketResult : BaseResultPacket
+    {
 
+    }
 }

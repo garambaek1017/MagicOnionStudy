@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MagicOnion;
 
-namespace Network.Hubs
+namespace Network.Hub
 {
     /// <summary>
     /// Client -> Server 

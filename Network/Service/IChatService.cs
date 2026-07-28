@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MagicOnion;
 
-namespace Shared.Service
+namespace Network.Service
 {
     /// <summary>
     /// Client -> ServerAPI 

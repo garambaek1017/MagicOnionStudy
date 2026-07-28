@@ -1,7 +1,7 @@
 ﻿using Grpc.Net.Client;
 using MagicOnion.Client;
 using MagicOnion.Serialization.MemoryPack;
-using Network.Hubs;
+using Network.Hub;
 using Packets;
 using Shared.Util;
 

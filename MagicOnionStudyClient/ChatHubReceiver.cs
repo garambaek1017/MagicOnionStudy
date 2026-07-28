@@ -1,4 +1,4 @@
-﻿using Network.Hubs;
+﻿using Network.Hub;
 using Packets;
 using Shared;
 using Shared.Util;

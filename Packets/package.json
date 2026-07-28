@@ -1,0 +1,10 @@
+{
+  "name": "com.magiconion-study.packets",
+  "version": "1.0.0",
+  "displayName": "MagicOnion Study Packets",
+  "description": "Packet contracts for the MagicOnion study projects.",
+  "unity": "6000.0",
+  "dependencies": {
+    "com.magiconion-study.common": "1.0.0"
+  }
+}

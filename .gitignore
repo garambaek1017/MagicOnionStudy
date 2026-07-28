@@ -396,3 +396,69 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# Repository local files
+.agents/
+.codex/
+.env
+.env.*
+!.env.example
+server.err.log
+server.out.log
+
+# Unity generated files
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Oo]bj/
+**/[Bb]uild/
+**/[Bb]uilds/
+**/[Ll]ogs/
+**/[Uu]ser[Ss]ettings/
+**/MemoryCaptures/
+**/Recordings/
+**/.idea/
+MagicOnionStudyUnityClient/App.config
+
+# Unity generated project and solution files
+**/Assembly-CSharp*.csproj
+MagicOnionStudyUnityClient/*.csproj
+MagicOnionStudyUnityClient/*.sln
+**/*.unityproj
+**/*.booproj
+**/*.pidb
+**/*.svd
+**/*.pdb
+**/*.mdb
+**/*.opendb
+**/*.VC.db
+**/sysinfo.txt
+
+# Unity package restore output
+**/Assets/packages/
+**/Assets/Packages/
+MagicOnionStudyUnityClient/Packages/*
+!MagicOnionStudyUnityClient/Packages/
+!MagicOnionStudyUnityClient/Packages/manifest.json
+!MagicOnionStudyUnityClient/Packages/packages-lock.json
+
+# Unity local/sample settings
+MagicOnionStudyUnityClient/Assets/Readme.asset
+MagicOnionStudyUnityClient/Assets/Readme.asset.meta
+MagicOnionStudyUnityClient/Assets/Adaptive Performance/
+MagicOnionStudyUnityClient/Assets/Adaptive Performance.meta
+MagicOnionStudyUnityClient/Assets/Plugins/ParrelSync/
+MagicOnionStudyUnityClient/Assets/Plugins/ParrelSync.meta
+
+# Unity asset metadata must be committed
+!**/Assets/**/*.meta
+!**/ProjectSettings/**/*.meta
+MagicOnionStudyUnityClient/Assets/Packages.meta
+MagicOnionStudyUnityClient/Assets/Readme.asset.meta
+MagicOnionStudyUnityClient/Assets/Adaptive Performance.meta
+MagicOnionStudyUnityClient/Assets/Adaptive Performance/**/*.meta
+MagicOnionStudyUnityClient/Assets/Plugins/ParrelSync.meta
+MagicOnionStudyUnityClient/Assets/Plugins/ParrelSync/**/*.meta
+
+# Crash and profiling artifacts
+crashlytics-build.properties
+*.stackdump

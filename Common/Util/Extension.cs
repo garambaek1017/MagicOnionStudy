@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+using System;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Shared.Util
@@ -21,7 +22,7 @@ namespace Shared.Util
                 return string.Empty;
             }
         }
-        
+
         public static T ToObject<T>(this string jsonString)
         {
             try
@@ -30,10 +31,10 @@ namespace Shared.Util
             }
             catch (Exception)
             {
-                return default(T); // 역직렬화 실패 시 기본값 반환 (참조형은 null, 값형은 기본값)
+                return default(T);
             }
         }
-        
+
         public static string ToJson<T>(this T obj)
         {
             try

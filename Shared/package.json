@@ -1,0 +1,7 @@
+{
+  "name": "com.magiconion-myproject-server.shared",
+  "version": "1.0.0",
+  "displayName": "MagicOnion Study Shared",
+  "description": "Shared contracts for the MagicOnion study client and server.",
+  "unity": "6000.0"
+}

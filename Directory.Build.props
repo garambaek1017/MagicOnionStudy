@@ -1,0 +1,19 @@
+<Project>
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'Shared'">
+    <BaseOutputPath>$(MSBuildThisFileDirectory)_artifacts\bin\Common\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)_artifacts\obj\Common\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'Packets'">
+    <BaseOutputPath>$(MSBuildThisFileDirectory)_artifacts\bin\Packets\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)_artifacts\obj\Packets\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'Network'">
+    <BaseOutputPath>$(MSBuildThisFileDirectory)_artifacts\bin\Network\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(MSBuildThisFileDirectory)_artifacts\obj\Network\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>$(BaseIntermediateOutputPath)</MSBuildProjectExtensionsPath>
+  </PropertyGroup>
+</Project>

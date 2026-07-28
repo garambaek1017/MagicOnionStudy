@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using MagicOnionStudyClient;
+﻿using MagicOnionStudyClient;
 
 ChatClient.Instance.IsRunning = true;
 

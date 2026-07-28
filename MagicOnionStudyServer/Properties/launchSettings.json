@@ -4,7 +4,8 @@
       "commandName": "Project",
       "commandLineArgs": "--env=dev",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DOTNET_ROOT": "C:\\Program Files\\dotnet"
       },
       "dotnetRunMessages": true
     }

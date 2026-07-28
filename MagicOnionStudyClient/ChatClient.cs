@@ -32,6 +32,12 @@ namespace MagicOnionStudyClient
             Console.Write("[Enter Your Nickname] >>>> ");
 
             var nickname = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(nickname))
+            {
+                Logger.Log("Nickname is empty. Please restart client and enter nickname.");
+                IsRunning = false;
+                return;
+            }
 
             Nickname = nickname;
             await Network.Login(Nickname);
@@ -42,10 +48,16 @@ namespace MagicOnionStudyClient
             while (IsRunning)
             {
                 var message = Console.ReadLine();
+                if (message is null)
+                {
+                    IsRunning = false;
+                    break;
+                }
 
-                if(message == "logout")
+                if(message == "logout" || message == "exit")
                 {
                     await Logout();
+                    IsRunning = false;
                 }
                 else
                 {

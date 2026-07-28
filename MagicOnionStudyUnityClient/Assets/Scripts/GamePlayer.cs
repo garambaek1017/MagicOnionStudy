@@ -7,10 +7,11 @@ public class GamePlayer : MonoBehaviourSingletonTemplate<GamePlayer>
 {
     public Text UserName;
     public Text Message;
-    private float MoveSpeed = 50.0f;
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         if (UserName == null)
         {
             UserName = GameObject.Find("TXT_UserName").GetComponent<Text>();

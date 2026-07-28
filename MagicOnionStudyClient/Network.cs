@@ -47,7 +47,7 @@ namespace MagicOnionStudyClient
             Logger.Log($"SendMessage, code:: {res} ");
         }
 
-        public async Task DisposeAsync()
+        private async Task DisposeAsync()
         {
             await ChatHub.DisposeAsync();
             Logger.Log("DisposeAsync..");

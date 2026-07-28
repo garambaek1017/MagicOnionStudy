@@ -2,7 +2,6 @@ using Packets;
 using Shared;
 using Shared.Util;
 using UnityEngine;
-using Util;
 
 public partial class HubClient
 {

@@ -18,7 +18,7 @@ namespace Uitility
             }
         }
     
-        protected void Awake()
+        protected virtual void Awake()
         {
             DontDestroyOnLoad(gameObject);
         }

@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using Packets;
 using Shared.Util;
 using Uitility;
-using Util;
 
 public partial class HubClient
 {

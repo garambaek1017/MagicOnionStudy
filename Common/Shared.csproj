@@ -11,6 +11,7 @@
     <PackageReference Include="MagicOnion" Version="7.0.1" />
     <PackageReference Include="MagicOnion.Serialization.MemoryPack" Version="7.0.0-preview.5-preview" />
     <PackageReference Include="MemoryPack.Core" Version="1.21.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

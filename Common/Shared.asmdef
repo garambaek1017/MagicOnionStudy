@@ -1,7 +1,9 @@
 {
   "name": "Shared",
   "rootNamespace": "",
-  "references": [],
+  "references": [
+    "Newtonsoft.Json"
+  ],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,

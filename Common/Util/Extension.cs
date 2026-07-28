@@ -1,21 +1,20 @@
 using System;
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Shared.Util
 {
     public static class Extension
     {
-        private static readonly JsonSerializerOptions JsonOptions = new()
+        private static readonly JsonSerializerSettings JsonSettings = new()
         {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault
+            DefaultValueHandling = DefaultValueHandling.Ignore
         };
 
         public static string ToLogString<T>(this T obj)
         {
             try
             {
-                return $"[{obj.GetType().Name}]:{JsonSerializer.Serialize(obj, JsonOptions)}";
+                return $"[{obj.GetType().Name}]:{JsonConvert.SerializeObject(obj, JsonSettings)}";
             }
             catch (Exception)
             {
@@ -27,7 +26,7 @@ namespace Shared.Util
         {
             try
             {
-                return JsonSerializer.Deserialize<T>(jsonString, JsonOptions);
+                return JsonConvert.DeserializeObject<T>(jsonString, JsonSettings);
             }
             catch (Exception)
             {
@@ -39,7 +38,7 @@ namespace Shared.Util
         {
             try
             {
-                return JsonSerializer.Serialize(obj, JsonOptions);
+                return JsonConvert.SerializeObject(obj, JsonSettings);
             }
             catch (Exception)
             {

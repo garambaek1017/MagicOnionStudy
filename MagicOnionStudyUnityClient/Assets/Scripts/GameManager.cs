@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviourSingletonTemplate<GameManager>
 {
     public Dictionary<string, GameObject> Players = new Dictionary<string, GameObject>();
     
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         MyLogger.Log("GameManager Awake, gamePlayer Set Active false");
     }
 
